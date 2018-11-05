@@ -28,7 +28,7 @@
 \title{Discovery of Archaeal Group I Introns Using Infernal}
 \author{Eric P. Nawrocki(1), Thomas A. Jones(2), and Sean R. Eddy(2)}
 %\author{Eric Nawrocki}
-\institute{1: National Center for Biotechnology Information, U.S. National Library of Medicine, Bethesda, MD 20894, USA. 2: Howard Hughes Medical Institute, FAS Center for Systems Biology, John A. Paulson School of Engineering and Applied Sciences, Harvard University, Cambridge, Massachusetts 02138, USA.}
+\institute{1: National Center for Biotechnology Information, U.S. National Library of Medicine, Bethesda, MD 20894, USA. \\ 2: Howard Hughes Medical Institute, FAS Center for Systems Biology, John A. Paulson School of Engineering and Applied Sciences, Harvard University, Cambridge, Massachusetts 02138, USA.}
 %\institute{1: National Center for Biotechnology Information, U.S. National Library of Medicine, Bethesda, MD 20894, USA.}
 %$^*$ {\tt davisf@janelia.hhmi.org}}
 \email{nawrocke@ncbi.nlm.nih.gov}
@@ -58,82 +58,27 @@
 
 \section*{RNA homology searches based on sequence and structure}
 %\begin{Large}
-Functional RNAs do not encode proteins, but rather function directly
-as RNAs. Many of these RNAs form stable, evolutionarily conserved
-three-dimensional structures that are crucial to their functions in
-various fundamental cellular processes including protein synthesis,
-gene expression, splicing, protein transport, and more. 
+%Functional RNAs do not encode proteins, but rather function directly
+%as RNAs. Many of these RNAs form stable, evolutionarily conserved
+%three-dimensional structures that are crucial to their functions in
+%various fundamental cellular processes including protein synthesis,
+%gene expression, splicing, protein transport, and more. 
 
 Finding homologs of structural RNAs is challenging because the
 sequences are often short (100-200 nt), lack ORFs, and have regions of
 high sequence variability even while conserving their
-three-dimensional structure. The most successful approaches for RNA
-homology search take advantage of both sequence and secondary
-structure conservation \cite{Freyhult07}.  The example below from \cite{Nawrocki13b}
-shows how searching for both sequence and secondary structure using a
-covariance model (CM) can identify a Cobalamin riboswitch which BLAST,
-a sequence-only based method, fails to identify.
-
-\begin{center}
-\includegraphics[width=13.5in]{figs/2013-cobalamin-poster.pdf}
-\end{center}
-
-When searching for protein coding genes, the amino acid sequence
-should be used instead of the nucleotide sequence because the larger
-amino acid alphabet makes protein searches much more powerful
-\cite{Pearson96}.  Incorporating secondary structure into RNA searches
-offers a similar boost to the statistical power of a nucleotide-only
-based search for RNAs, albeit not as dramatic. Figure
-\ref{fig:examples} below compares the increase in statistical
-significance between BLASTN (nucleotide-based search) and BLASTP
-(protein-based search) for protein-coding genes and between BLASTN
-and Infernal (CM-based sequence and structure search) for RNA genes,
-where both the protein-coding gene and RNA gene being searched for are
-members of the same ribonucleoprotein complex.
-
-% the caption for figure 1 (cobalamin) was in the figure.
-\setcounter{figure}{1}
-
-\begin{footnotesize}
-\begin{figure}
-\center{\includegraphics[width=13.5in]{figs/revised-examples}}
-\caption{
-Homology search improvement achieved by utilizing additional
-information for proteins and structured noncoding RNAs. This figure is
-from \cite{Nawrocki13b}.}
-%Examples of identifying coding region homologies by amino acid sequence
-%vs. nucleic acid sequence comparison (BLASTP vs. BLASTN, dashed
-%lines), compared with identifying RNA homologies by primary sequence
-%vs. structure/sequence comparison (BLASTN vs. infernal, solid lines)
-%for several ribonucleoprotein complexes.}
-%Filled circles correspond
-%to BLASTP protein searches and Infernal RNA searches. Open circles
-%correspond to BLASTN coding region searches and BLASTN RNA
-%searches.}
-%Question marks indicate targets that were not found by the
-%indicated search method. Each point is labeled with its e-) and
-%fractional ), calculated as the fraction of query positions included
-%in the hit alignment. For each query/target
-%pair, the query sequence was searched against the target genome (for
-%coding sequence and rNA searches) or predicted proteome (for amino
-%acid sequence searches) using the indicated search programs. For
-%example, in the leftmost column, when we use the SrP protein  h in
-%E. coli as a query against the B. subtilis proteome with BLASTP, the
-%top scoring hit is to the  h protein with an e-value of 6 Covcoverage 10 (evalue (
-\label{fig:examples}
-\end{figure}
-\end{footnotesize}
-
-\columnbreak
-%%%%%%%%%%%%%%%%%
-% Middle column %
-%%%%%%%%%%%%%%%%%
-
-\section*{Conserved sequence and structure as statistical signals}
+three-dimensional structure.
+%The most successful approaches for RNA
+%homology search take advantage of both sequence and secondary
+%structure conservation \cite{Freyhult07}. 
+%
+%\section*{Conserved sequence and structure as statistical signals}
 The conserved sequence and secondary structure of RNAs offers two
 statistical signals that can be harnessed when searching
-databases for homologs using CMs. In
-Figure~\ref{fig:seqstructprofiles} below, the amount of information,
+databases for homologs using CMs.
+
+\indent
+In Figure~\ref{fig:seqstructprofiles} below, the amount of information,
 measured in \emph{bits}, inherent in a sequence-only profile (14
 bits) and a sequence-and-structure profile (17 bits) is shown for a
 toy example of an RNA family. We expect a match to a sequence-only
@@ -145,7 +90,7 @@ random nucleotides.
 
 \begin{footnotesize}
 \begin{figure}
-\center{\includegraphics[width=13.5in]{figs/seqstructprofiles}}
+\center{\includegraphics[width=13in]{figs/seqstructprofiles}}
 \caption{Information in a sequence-only versus a sequence and
   structure profile. 
 %The eight sequence alignment for a fabricated RNA
@@ -183,7 +128,7 @@ of magnitude ($2^{10} = 1024$).
 
 \begin{footnotesize}
 \begin{figure}
-\center{\includegraphics[width=13.5in]{figs/avgscores-rfam11}}
+\center{\includegraphics[width=12in]{figs/avgscores-rfam11}}
 \caption{Additional information (in bits) gained by sequence and
   structure profiles (CMs) versus sequence-only profiles (HMMs) for
   various RNA families.  
@@ -210,10 +155,11 @@ of magnitude ($2^{10} = 1024$).
 \end{figure}
 \end{footnotesize}
 
+
 \columnbreak
-%%%%%%%%%%%%%%%%
-% Right column %
-%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%
+% Middle column %
+%%%%%%%%%%%%%%%%%
 
 \section*{Internal benchmark shows benefit of modeling sequence and
   structure conservation}
@@ -251,14 +197,63 @@ is from \cite{Nawrocki13c}}
 \includegraphics[width=13.5in]{figs/rfam-poster}
 \end{center}
 
+\section*{Infernal, without BLAST filters, finds new homologs}
+
+\center{\includegraphics[width=13.5in]{figs/rfam-nar-table1-published-gp1i-yellow-top5only}}
+
+\columnbreak
+
+%%%%%%%%%%%%%%%%
+% Right column %
+%%%%%%%%%%%%%%%%
+
+\section*{Group I introns}
+
+This is a brief introduction of group I introns.
+This is a brief introduction of group I introns.
+This is a brief introduction of group I introns.
+This is a brief introduction of group I introns.
+This is a brief introduction of group I introns.
+This is a brief introduction of group I introns.
+This is a brief introduction of group I introns.
+
+\begin{center}
+\includegraphics[width=13.5in]{figs/gissd-banner}
+
+\includegraphics[width=13.5in]{figs/GISSD-stats-zoomed}
+\end{center}
+
+\begin{itemize}
+\item downloaded all archaeal sequences in GenBank (6.7Gb as of Sept
+  2017)
+\item searched archaeal sequences with all GISSD models + RF00028 with
+  default cmsearch parameters and with \texttt{--anytrunc}
+\item 95 non-overlapping hits with $E < 0.01$
+  corresponding\footnote{as determined via manual sequence analysis by Tom Jones} to 39
+  group I intron candidates (12 IA3 and 27 IB4)
+\item 30/39 introns have at least one hit with $E < 10^{-10}$ 
+\item 36 within LSU rRNA, 3 within SSU rRNA
+\item All IA3s are in one of two LSU insertion positions:
+  \begin{itemize}
+  \item LSU/2593 (N=10) and LSU/2500 (N=2)
+  \end{itemize}
+\item All IB4s are in one of two LSU insertion positions and one SSU
+  position:
+  \begin{itemize}
+  \item LSU/1931 (N=15), LSU/1923 (N=9), and SSU/1498 (N=3)
+  \end{itemize}  
+\end{itemize}  
+
+\center{\includegraphics[width=13.5in]{figs/gp1-fig-ss-and-cladogram}}
+
 \section*{Funding}
 \begin{footnotesize}
 This work is supported by the Intramural Research Program of the
 National Institutes of Health, National Library of Medicine (EPN), 
-by Howard Hughes Medical Institute (EPN (previously), SRE), by the European
-Bioinformatics institute of the European Molecular Biology Laboratory
-(IK, JA, AIP), and by the Biotechnology and Biological Sciences
-Research Council (IK, JA, AIP).
+by Howard Hughes Medical Institute (EPN (previously), TAJ and
+SRE). Rfam is supported by the European
+Bioinformatics Institute of the European Molecular Biology Laboratory
+and by the Biotechnology and Biological Sciences Research Council.
 \end{footnotesize}
 
 \bibliographystyle{unsrtnat}
